@@ -17,12 +17,12 @@ export const Navbar = () => {
             <ul className="navbar-list">
                 <li>
                     <NavLink activeClassName="nav-selected" to="/new">
-                    New Post
+                    new post
                     </NavLink>
                     <NavLink activeClassName="nav-selected" to="/me">
-                    My Profile
+                    my profile
                     </NavLink>
-                </li>
+                </li> 
             </ul>
         </nav>
     )

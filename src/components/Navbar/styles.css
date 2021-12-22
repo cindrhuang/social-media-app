@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.navbar a {
+.navbar-home a {
     color: rgb(255, 255, 255);
     font-size: 26px;
     font-family: Garamond, serif;
@@ -19,10 +19,14 @@
     text-decoration: none;
 }
 
-.navbar-list {
-    padding-right: 1.5rem;
+.navbar-list a{
+    color: rgb(255, 255, 255);
+    font-family: Garamond, serif;
+    font-size: 20px;
+    padding-right: 3rem;
+    text-decoration: none;
 }
 
 .navbar a:hover {
-    font-weight: bold;
+    text-decoration: underline;
 }
