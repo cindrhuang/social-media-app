@@ -1,6 +1,8 @@
 import "./styles.css";
 
 import { useEffect, useState, useContext } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useHistory } from "react-router-dom";
 
 import { PostItem } from "../../PostItem";
 import PostsContext from "../../../context/postContext";
@@ -10,6 +12,20 @@ export const Homepage = () => {
     const [posts, setPosts] = useState([]);
 
     const globalState = useContext(PostsContext);
+
+    const history = useHistory();
+
+    //User must LOGIN
+    useEffect (
+        () => {
+        const auth = getAuth();
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+            history.push("/login");
+            }
+        })
+        }, []
+    );
 
     useEffect (() => {
         getPosts();

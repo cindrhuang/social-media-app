@@ -3,6 +3,7 @@ import "./styles.css"
 import {
     NavLink
 } from "react-router-dom";
+import { Logout } from "../Logout";
 
 export const Navbar = () => {
     return (
@@ -24,6 +25,7 @@ export const Navbar = () => {
                     <NavLink activeClassName="nav-selected" to="/me">
                     my profile
                     </NavLink>
+                    <Logout/>
             </ul>
         </nav>
     )

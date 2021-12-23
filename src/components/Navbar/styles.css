@@ -12,7 +12,7 @@
 }
 
 .navbar-home a {
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 26px;
     font-family: Garamond, serif;
     letter-spacing: 0.2rem;
@@ -20,7 +20,7 @@
 }
 
 .navbar-list a{
-    color: rgb(255, 255, 255);
+    color: white;
     font-family: Garamond, serif;
     font-size: 20px;
     padding-right: 3rem;
@@ -29,4 +29,19 @@
 
 .navbar a:hover {
     text-decoration: underline;
+}
+
+.navbar-list a.nav-selected {
+    text-decoration: underline;
+}
+
+.navbar button {
+    color: rgb(106, 129, 105);
+    font-family: Garamond, serif;
+    font-size: 20px;
+    margin-right: 2rem;
+    height: 30px;
+    background-color: white;
+    border: 2px solid rgb(180, 216, 177);
+    border-radius: 10px;
 }

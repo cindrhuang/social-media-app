@@ -1,0 +1,10 @@
+.my-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.my-page h2 {
+    color: rgb(106, 129, 105);
+}
