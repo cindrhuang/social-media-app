@@ -15,14 +15,15 @@ export const Navbar = () => {
                 </li>
             </ul>
             <ul className="navbar-list">
-                <li>
+                    <NavLink exact={true} activeClassName="nav-selected" to="/">
+                    home
+                    </NavLink>
                     <NavLink activeClassName="nav-selected" to="/new">
                     new post
                     </NavLink>
                     <NavLink activeClassName="nav-selected" to="/me">
                     my profile
                     </NavLink>
-                </li> 
             </ul>
         </nav>
     )

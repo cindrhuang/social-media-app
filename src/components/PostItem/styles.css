@@ -15,7 +15,7 @@
     flex-direction: row;
 }
 
-.user-info h1 {
+.user-info h2 {
     color: rgb(106, 129, 105);
     margin-left: 1rem;
     font-size: 20px;
