@@ -17,6 +17,8 @@ export const MyPage = () => {
     const auth = getAuth();
     const history = useHistory();
 
+    const userEmail = auth.currentUser.email;
+
     //User must LOGIN
     useEffect (
         () => {
@@ -30,21 +32,20 @@ export const MyPage = () => {
 
     useEffect (() => {
         getPosts();
-        //showMyPosts();
+        showMyPosts();
     }, []);
 
-    /*const showMyPosts = () => {
+    const showMyPosts = () => {
         const myPosts = posts.filter (
             (posts) => {
                 const email = posts.email.stringValue;
-                const userEmail = auth.currentUser.email;
                 const isMatch = email.indexOf(userEmail);
 
                 return isMatch !== -1;
             }
         )
         setMyPosts(showMyPosts);
-    }*/
+    }
 
     const getPosts = async() => {
         try {

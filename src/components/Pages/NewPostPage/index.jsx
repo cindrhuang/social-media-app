@@ -24,9 +24,10 @@ export const NewPostPage = () => {
   const submitPost = async (formVals) => {
     const formattedData = {
         fields: {
+            username: { stringValue: auth.currentUser.email },
             userPhoto: { stringValue: formVals.userPhoto },
-            username: { stringValue: formVals.username },
             text: { stringValue: formVals.text },
+            id: { stringValue: formVals.id },
         }
     }
 
@@ -51,13 +52,13 @@ export const NewPostPage = () => {
             <br/>
 
             <label htmlFor="userPhoto"> Profile Photo </label>
-            <input {...register("userPhoto")} name="userPhoto" type="text"/>
+            <input {...register("userPhoto")} name="userPhoto" required/>
 
-            <label htmlFor="username"> * What do you want to share? </label>
-            <input {...register("username")} name="username" required type="text"/>
+            <label htmlFor="text"> What do you want to share? </label>
+            <input {...register("text")} name="text" required type="text" className="text-box"/>
 
-            <label htmlFor="text"> * What do you want to share? </label>
-            <input {...register("text")} name="text" required type="text"/>
+            <label htmlFor="userPhoto"> Post ID </label>
+            <input {...register("id")} name="id" required/>
 
             <input type="submit" values="Post"/>
             <br/>
