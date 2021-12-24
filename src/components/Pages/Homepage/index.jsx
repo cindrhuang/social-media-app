@@ -36,7 +36,7 @@ export const Homepage = () => {
             const response = await fetch ("https://firestore.googleapis.com/v1/projects/social-media-4012/databases/(default)/documents/posts/");
             const data = await response.json();
             const formattedData = data.documents.map((item) => {
-                return item.fields;
+            return item.fields;
             });
 
             setPosts(formattedData);

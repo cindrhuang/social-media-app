@@ -9,7 +9,7 @@ import PostsContext from "../../../context/postContext";
 
 export const MyPage = () => {
 
-    const [posts, setPosts] = useState([]);
+    const [allPosts, setAllPosts] = useState([]);
     const [myPosts, setMyPosts] = useState([]);
 
     const globalState = useContext(PostsContext);
@@ -35,32 +35,33 @@ export const MyPage = () => {
         showMyPosts();
     }, []);
 
-    const showMyPosts = () => {
-        const myPosts = posts.filter (
-            (posts) => {
-                const email = posts.email.stringValue;
-                const isMatch = email.indexOf(userEmail);
-
-                return isMatch !== -1;
-            }
-        )
-        setMyPosts(showMyPosts);
-    }
-
     const getPosts = async() => {
         try {
             const response = await fetch ("https://firestore.googleapis.com/v1/projects/social-media-4012/databases/(default)/documents/posts/");
             const data = await response.json();
             const formattedData = data.documents.map((item) => {
-                return item.fields;
+            return item.fields;
             });
 
-            setPosts(formattedData);
-            setMyPosts(formattedData);
+            setAllPosts(formattedData);
+            //setMyPosts(formattedData);
             globalState.initializePosts(formattedData);
         } catch (err) {
             console.log(err);
         }
+    }
+
+    const showMyPosts = () => {
+        const filterMyPosts = allPosts.filter (
+            (posts) => {
+                const email = posts.username.stringValue;
+                const isMatch = email.indexOf(userEmail);
+
+                return isMatch !== -1;
+            }
+        )
+        console.log(userEmail);
+        setMyPosts(filterMyPosts);
     }
 
     return (
@@ -78,6 +79,9 @@ export const MyPage = () => {
                         userPhoto={posts.userPhoto.stringValue}
                         text={posts.text.stringValue}/>
                     ))
+                }
+                {
+                    myPosts.length === 0 && <p>No posts yet.</p>
                 }
             </div>
         </div>

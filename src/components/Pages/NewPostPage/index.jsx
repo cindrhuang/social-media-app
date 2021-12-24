@@ -51,7 +51,7 @@ export const NewPostPage = () => {
             <h2>New Bloggy</h2>
             <br/>
 
-            <label htmlFor="userPhoto"> Profile Photo </label>
+            <label htmlFor="userPhoto"> Photo of your Mood </label>
             <input {...register("userPhoto")} name="userPhoto" required/>
 
             <label htmlFor="text"> What do you want to share? </label>
